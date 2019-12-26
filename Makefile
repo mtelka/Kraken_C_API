@@ -31,7 +31,9 @@ DEFINES= -DPASSWORD='"$(PASSWORD)"'
 LIBS = -L/usr/local/lib -L/usr/lib -L/usr/lib/x86_64-linux-gnu -lm -lssl -lcrypto
 PASSWORD= '"Default"'
 DEPS = logging.h kraken_api.h main_header.h curl.h url.h crypto.h kr_helper.h kr_private_trading_functions.h kr_public_functions.h kr_private_user_functions.h 
+DEPS += kr_private_funding_functions.h
 LIBOBJ = kraken_api.o curl.o url.o crypto.o kr_helper.o kr_private_trading_functions.o kr_public_functions.o kr_private_user_functions.o
+LIBOBJ += kr_private_funding_functions.o
 OBJ = $(LIBOBJ) main.o
 
 all: REST

@@ -1,4 +1,5 @@
 #include "kraken_api.h"
+#include "kr_private_funding_functions.h"
 #include "kr_private_trading_functions.h"
 #include "kr_private_user_functions.h"
 #include "kr_public_functions.h"
@@ -91,6 +92,7 @@ int kraken_init(struct kraken_api **kr_api, const char *api_key, const char *sec
 	(*kr_api)->opt_table_lenght = NKEYS;
 
 	/* assign the private functions */
+	(*kr_api)->priv_func->deposit_methods     = &deposit_methods;
 	(*kr_api)->priv_func->add_order           = &addOrder;
 	(*kr_api)->priv_func->cancel_order        = &cancelOrder;
 	(*kr_api)->priv_func->get_account_balance = &account_balance;

@@ -87,6 +87,9 @@ struct kraken_api {
 	char* s_uri_public;                 /* e.g. /0/public */
 	char* s_url;                        /* https://api.kraken.com */
 
+	/* PRIVATE USER FUNDING */
+	char* s_uri_deposit_methods;        /* e.g. /DepositMethods */
+
 	/* PRIVATE USER TRADING */
 	char* s_uri_addorder;               /* e.g. /AddOrder */
 	char* s_uri_cancel_order;           /* e.g. /CancelOrder */
@@ -125,6 +128,8 @@ struct kraken_api {
 
 struct private_functions {
 	/* order in function: type, ordertype, asset-pair */
+
+	int (*deposit_methods)(struct kraken_api **, const char *);
 
 	/* add_order: variable lenght argument list (p. 155 K&R) */
 	int (*add_order)(struct kraken_api**, const char*, const char*, const char*, const char*, ...);

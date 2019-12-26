@@ -10,6 +10,8 @@ int make_url(struct kraken_api **kr_data){
 	const char* api_version             = "/0";
 	const char* api_private             = "/private";
 	const char* api_public              = "/public";
+	/* PRIVATE USER FUNDING */
+	const char* api_deposit_methods     = "/DepositMethods";
 	/* PRIVATE USER TRADING */
 	const char* api_add_order           = "/AddOrder";
 	const char* api_cancel_order        = "/CancelOrder";
@@ -49,6 +51,11 @@ int make_url(struct kraken_api **kr_data){
 	(*kr_data)->s_uri_public = strdup(api_version);
 	/* add public method to the string */
 	(*kr_data)->s_uri_public = to_url((*kr_data)->s_uri_public, api_public);
+
+	/* ### PRIVATE USER FUNDING ### */
+
+	/* DEPOSIT METHODS */
+	(*kr_data)->s_uri_deposit_methods = strdup(api_deposit_methods);
 
 	/* ### PRIVATE USER TRADING ### */
 
