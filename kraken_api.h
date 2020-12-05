@@ -109,6 +109,7 @@ struct kraken_api {
 
 	/* PUBLUC FUNTIONS */
 	char* s_uri_server_time;            /* e.g. /Time */
+	char* s_uri_system_status;          /* e.g. /SystemStatus */
 	char* s_uri_asset_info;             /* e.g. /Assets */
 	char* s_uri_asset_pairs;            /* e.g. /AssetPairs */
 	char* s_uri_ticker;                 /* e.g. /Ticker */
@@ -172,6 +173,7 @@ struct private_opt_listen {
 
 struct public_functions {
 	int (*get_server_time)(struct kraken_api**);
+	int (*get_system_status)(struct kraken_api**);
 	int (*get_asset_info)(struct kraken_api**);
 	int (*get_tradable_asset_pairs)(struct kraken_api**);
 	int (*get_ticker_info)(struct kraken_api**, const char*);
